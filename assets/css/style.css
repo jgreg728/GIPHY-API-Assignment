@@ -1,0 +1,21 @@
+body {
+  background-image: url(/Users/johngregorio/Desktop/Rutgers_Coding_Bootcamp/GitHub/Homework/week6/GIPHY-API-Assignment/assets/images/daniele-levis-pelusi-546997-unsplash.jpg);
+}
+
+#titleDiv {
+  font-family: "Tropical Asian DEMO";
+  font-size: 600%;
+  background: rgb(2, 36, 17);
+  color: white;
+  text-align: center;
+}
+#buttonDiv {
+  font-family: "Tropical Asian DEMO";
+  font-size: 300%;
+  color: white
+}
+#searchDiv {
+  font-family: "Tropical Asian DEMO";
+  font-size: 400%;
+  color: seagreen
+}

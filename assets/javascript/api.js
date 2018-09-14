@@ -2,35 +2,30 @@
 var topics = ["Super Mario", "The Legend of Zelda", "Metroid", "Pokemon", "Starfox", "Pikmin", "Animal Crossing", "Super Smash Bros."]
 
 // DISPLAY GIFs
-function displayGIF() {
-  var gifs = $(this).attr("data-name");
+function displayGIF(btn) {
+  var gif = $(btn).attr("data-name");
   var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=zkgXuP9qgxho9KA9w4TGyn3i3xVvBIBS&limit=10";
 
   $.ajax({
     url: queryURL,
     method: "GET"
-  }).then(function (response) {
-    var results = response.data;
-    console.log(response);
-
+  })
+  
+  .then(function (response) {
+    $("#gifDiv").text(JSON.stringify(response.data));
     
-
-    // BUTTON CLICK EVENT
-    $("#gifAdd").on("click", function (event) {
-      event.preventDefault();
-      var gif = $("#gifInput").val().trim();
-      gifs.push(gif);
-      console.log(gifs)
-      renderButtons();
-
-    });
-    
+    // var gifURL = response.data.image_original_url;
+    // var gifPrint = $("<img>");
+    // gifPrint.attr("src", gifURL);
+    // gifPrint.attr("alt", "gif print");
+    // $("#gifDiv").prepend(gifPrint);
+    console.log(this);
   });
   
 }
 
 // RENDER/ADD BUTTONS
-    function renderButtons() {
+  function renderButtons() {
       $("#buttonDiv").empty();
       for (var i = 0; i < topics.length; i++) {
         var newButton = $("<button>");
@@ -41,6 +36,20 @@ function displayGIF() {
       }
     };
 // DISPLAY GIFs
-$(document).on("click", ".gif", displayGIF);
+$(document).on("click", ".gif", function(){
+  displayGIF(this)
+});
 
-$(document).ready(renderButtons());
+
+$(document).ready( function(){
+
+      // BUTTON CLICK EVENT
+      $("#gifAdd").on("click", function (event) {
+        event.preventDefault();
+        var gif = $("#gifInput").val().trim();
+        topics.push(gif);
+        renderButtons();  
+      });
+
+  renderButtons()
+});

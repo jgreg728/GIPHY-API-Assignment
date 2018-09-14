@@ -5,26 +5,33 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>GIPHY Generator</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css"/>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="assets/javascript/api.js"></script>
 </head>
 
 <body>
    <div class="container">
-     <h1>GIPHY Generator</h1>
+     <div id="titleDiv"> 
+      GIPHY Generator
+    </div>
 
-     <div id="gifDiv"></div>
+    <br>
 
-     <div id="buttonDiv"></div>
+     <div id="buttonDiv"> 
+       <button id="gifAdd" type="submit" text="Search">Search</button>
+     </div>
+
+     <br>
 
      <form id="searchDiv">
        <label for="gifInput">Type GIF keyword(s) here...</label>
        <input type="text" id="gifInput">
        <br>
 
-       <button id="gifAdd" type="submit" text="Search">Search</button> 
+ <div id="gifDiv"></div>
+
      </form>
 
    </div>
